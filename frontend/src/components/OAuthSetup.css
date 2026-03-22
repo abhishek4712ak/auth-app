@@ -1,0 +1,311 @@
+.oauth-setup-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(30, 30, 45, 0.8) 0%, rgba(40, 40, 60, 0.8) 100%);
+  border: 1px solid rgba(100, 180, 230, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.oauth-setup-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(100, 180, 230, 0.3);
+}
+
+.oauth-setup-header h2 {
+  color: #64b4e6;
+  margin: 0 0 8px 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.oauth-setup-header p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-size: 14px;
+}
+
+.oauth-providers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.oauth-provider-card {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 180, 230, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.oauth-provider-card:hover {
+  border-color: rgba(100, 180, 230, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.oauth-provider-card.expanded {
+  grid-column: 1 / -1;
+  border-color: rgba(100, 180, 230, 0.6);
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.provider-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 4px solid;
+  gap: 12px;
+  user-select: none;
+}
+
+.provider-icon {
+  font-size: 24px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.provider-name {
+  flex: 1;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.expand-icon {
+  font-size: 20px;
+  color: #64b4e6;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.oauth-provider-card.expanded .expand-icon {
+  transform: rotate(180deg);
+}
+
+.provider-steps {
+  padding: 0;
+  animation: expandSteps 0.3s ease;
+}
+
+@keyframes expandSteps {
+  from {
+    max-height: 0;
+    opacity: 0;
+  }
+  to {
+    max-height: 2000px;
+    opacity: 1;
+  }
+}
+
+.setup-step {
+  display: flex;
+  gap: 15px;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(100, 180, 230, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.setup-step:last-child {
+  border-bottom: none;
+}
+
+.step-number {
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(100, 180, 230, 0.2);
+  border: 1px solid rgba(100, 180, 230, 0.4);
+  border-radius: 50%;
+  color: #64b4e6;
+  font-weight: 600;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h4 {
+  margin: 0 0 5px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.step-content p {
+  margin: 0 0 8px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.step-action-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  background: rgba(100, 180, 230, 0.2);
+  border: 1px solid rgba(100, 180, 230, 0.4);
+  color: #64b4e6;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.step-action-btn:hover {
+  background: rgba(100, 180, 230, 0.3);
+  border-color: rgba(100, 180, 230, 0.6);
+  color: #ffffff;
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(100, 180, 230, 0.2);
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-top: 8px;
+  position: relative;
+  font-family: 'Courier New', monospace;
+}
+
+.code-block code {
+  color: #64b4e6;
+  font-size: 12px;
+  display: block;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 4px 8px;
+  background: rgba(100, 180, 230, 0.2);
+  border: 1px solid rgba(100, 180, 230, 0.3);
+  color: #64b4e6;
+  border-radius: 3px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: rgba(100, 180, 230, 0.3);
+  border-color: rgba(100, 180, 230, 0.5);
+}
+
+/* GitHub OAuth Button Styles */
+.oauth-button.github {
+  background: linear-gradient(135deg, #24292e 0%, #1a1f27 100%);
+  border-color: #30363d;
+  color: #ffffff;
+}
+
+.oauth-button.github:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2d363b 0%, #21262d 100%);
+  border-color: #484f58;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(36, 41, 46, 0.4);
+}
+
+.oauth-button.github:active {
+  transform: translateY(0);
+}
+
+.oauth-button.github .oauth-icon {
+  filter: brightness(1.1);
+}
+
+.oauth-info {
+  background: rgba(100, 180, 230, 0.1);
+  border: 1px solid rgba(100, 180, 230, 0.2);
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-top: 20px;
+}
+
+.oauth-info h3 {
+  color: #64b4e6;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.oauth-info ul {
+  margin: 0;
+  padding-left: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+.oauth-info li {
+  margin: 6px 0;
+  line-height: 1.5;
+}
+
+.oauth-info code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: #64b4e6;
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .oauth-providers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .oauth-setup-container {
+    padding: 15px;
+  }
+
+  .oauth-setup-header h2 {
+    font-size: 20px;
+  }
+
+  .provider-header {
+    padding: 12px 15px;
+  }
+
+  .setup-step {
+    padding: 12px 15px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .oauth-setup-header h2 {
+    font-size: 18px;
+  }
+
+  .providers-icon {
+    font-size: 20px;
+  }
+
+  .provider-name {
+    font-size: 14px;
+  }
+
+  .step-content h4 {
+    font-size: 13px;
+  }
+
+  .step-content p {
+    font-size: 12px;
+  }
+}
